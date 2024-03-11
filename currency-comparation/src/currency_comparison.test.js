@@ -1,6 +1,8 @@
 import CurrencyComparison from './currency_comparison';
 
 // Task 10: Import and mock fetchData
+import fetchData from './utils/fetch-data.js';
+jest.mock('./utils/fetch-data')
 
 const testSalary = new CurrencyComparison(50000)
     
@@ -77,8 +79,8 @@ it("Receives current currency exchange data", async ()=>{
   const expectedValue = [{"CCD": 50}, "Mock"];
 
   // Mock the resolved value of fetchData
+fetchData.mockResolvedValueOnce(mockResponse);
 
-  
   //act
   const actualValue = await testSalary.fetchCurrentExchange() 
   
