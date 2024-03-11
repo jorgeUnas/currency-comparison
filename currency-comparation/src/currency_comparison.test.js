@@ -85,5 +85,6 @@ fetchData.mockResolvedValueOnce(mockResponse);
   const actualValue = await testSalary.fetchCurrentExchange() 
   
   //assert
+  expect(actualValue).toEqual(expectedValue);
  
 })
